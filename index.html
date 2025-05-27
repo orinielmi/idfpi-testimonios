@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Testimonios IDFPI</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    .testimonios-container {
+      max-width: 800px;
+      margin: 40px auto;
+      border: 2px solid #0033A0;
+      border-radius: 10px;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      height: 240px;
+    }
+
+    .carousel-inner {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .testimonio {
+      min-width: 100%;
+      box-sizing: border-box;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #0033A0;
+    }
+
+    .texto-testimonio {
+      flex: 1;
+    }
+
+    .texto-testimonio p {
+      font-size: 14px;
+      margin: 0 0 6px;
+    }
+
+    .nombre {
+      font-weight: bold;
+      color: #0033A0;
+    }
+
+    .profesion {
+      font-style: italic;
+      font-size: 13px;
+      color: #555;
+    }
+
+    .controles {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .boton {
+      background-color: #0033A0;
+      color: #f4c300;
+      border: none;
+      padding: 8px 16px;
+      margin: 0 5px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .boton:hover {
+      background-color: #002080;
+    }
+  </style>
+</head>
+<body>
+  <div class="testimonios-container">
+    <div class="carousel">
+      <div class="carousel-inner" id="carouselInner">
+        <div class="testimonio">
+          <img src="https://api.dicebear.com/7.x/fun-emoji/svg?seed=Maria" class="avatar" alt="Avatar 1">
+          <div class="texto-testimonio">
+            <p>"La formación en ODS me permitió comprender mejor cómo mi comunidad puede contribuir al desarrollo sostenible."</p>
+            <div class="nombre">María Rodríguez</div>
+            <div class="profesion">Estudiante de Formación Profesional</div>
+          </div>
+        </div>
+        <div class="testimonio">
+          <img src="https://api.dicebear.com/7.x/fun-emoji/svg?seed=Sofia" class="avatar" alt="Avatar 2">
+          <div class="texto-testimonio">
+            <p>"Aprendí a usar herramientas digitales que jamás pensé dominar. Hoy ayudo a otros en mi comunidad."</p>
+            <div class="nombre">Sofía Pérez</div>
+            <div class="profesion">Estudiante de Competencia Digital</div>
+          </div>
+        </div>
+        <div class="testimonio">
+          <img src="https://api.dicebear.com/7.x/fun-emoji/svg?seed=Camila" class="avatar" alt="Avatar 3">
+          <div class="texto-testimonio">
+            <p>"Los cursos de economía digital me dieron las bases para lanzar mi emprendimiento online."</p>
+            <div class="nombre">Camila Gómez</div>
+            <div class="profesion">Emprendedora digital</div>
+          </div>
+        </div>
+        <div class="testimonio">
+          <img src="https://api.dicebear.com/7.x/fun-emoji/svg?seed=Lucia" class="avatar" alt="Avatar 4">
+          <div class="texto-testimonio">
+            <p>"Con la Inteligencia Artificial Generativa aprendí a crear materiales educativos en minutos."</p>
+            <div class="nombre">Lucía Sánchez</div>
+            <div class="profesion">Docente en formación pedagógica</div>
+          </div>
+        </div>
+        <div class="testimonio">
+          <img src="https://api.dicebear.com/7.x/fun-emoji/svg?seed=Valentina" class="avatar" alt="Avatar 5">
+          <div class="texto-testimonio">
+            <p>"Gracias a Copilot y ChatGPT ahora soy mucho más productiva en la oficina."</p>
+            <div class="nombre">Valentina Ferreira</div>
+            <div class="profesion">Asistente Administrativa</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="controles">
+      <button class="boton" onclick="moverCarrusel(-1)">Anterior</button>
+      <button class="boton" onclick="moverCarrusel(1)">Siguiente</button>
+    </div>
+  </div>
+
+  <script>
+    let index = 0;
+    function moverCarrusel(direccion) {
+      const carrusel = document.getElementById('carouselInner');
+      const testimonios = document.querySelectorAll('.testimonio');
+      const total = testimonios.length;
+      index += direccion;
+      if (index < 0) index = total - 1;
+      if (index >= total) index = 0;
+      carrusel.style.transform = 'translateX(' + (-index * 100) + '%)';
+    }
+  </script>
+</body>
+</html>
